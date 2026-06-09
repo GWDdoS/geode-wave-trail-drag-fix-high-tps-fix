@@ -1,3 +1,7 @@
+# v1.5.1
+- updated to geode 5.7.1
+- fixed wave trail breaking in high tps
+
 # v1.5.0
 - update to 2.2081
 

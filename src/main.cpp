@@ -151,7 +151,9 @@ class $modify(WTDFPlayerObject, PlayerObject) {
 
     // make the error margin inversely proportional to the delta factor
     // if 2 updates are extremely close together calculating the angle between them may lead to inaccuracies
-    float errorMargin = 0.004/m_fields->deltaFactor;
+    // howEVER, on high tps, this will round to 0 and make the wave trail not work :)
+    
+    // float errorMargin = 0.004/m_fields->deltaFactor;
 
     // save the current point as prevPoint only if it is placed as a streak point
     // this makes it so that even smooth paths where
@@ -166,7 +168,7 @@ class $modify(WTDFPlayerObject, PlayerObject) {
     // basically, this trades off accounting for one type of cumulative error
     // (slowly moving smooth transitions not being detected as actually changing moving)
     // over another (the an unchanged direction being detected as a change in direction over a long period of time)
-    if (crossProductMagnitude <= errorMargin) return;
+    // if (crossProductMagnitude <= errorMargin) return;
 
     if (nextPosition != nextPositionNoCollision && !m_fields->transitionToCollision) {
 
